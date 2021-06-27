@@ -1,0 +1,247 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<title></title>
+</head>
+<body>
+<link rel="stylesheet" href="jquery-ui.css">
+<script type="text/javascript" src="/webiopi.js"></script>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script>
+<script>
+<!--
+jQuery( function() {
+	jQuery( '#jquery-ui-slider1' ) . slider( {
+		orientation: 'vertical',
+		value: 90,
+		min: 0,
+		max: 180,
+		slide: function( event, ui ) {
+			jQuery( '#jquery-ui-slider-value1' ) . val( ui.value );
+			webiopi().callMacro( "MoveServo", [0, ui.value] );
+		}
+	} );
+	jQuery( '#jquery-ui-slider-value1' ) . val( jQuery( '#jquery-ui-slider1' ) . slider( 'value' ) );
+} );
+
+jQuery( function() {
+	jQuery( '#jquery-ui-slider2' ) . slider( {
+		orientation: 'vertical',
+		value: 90,
+		min: 0,
+		max: 180,
+		slide: function( event, ui ) {
+			jQuery( '#jquery-ui-slider-value2' ) . val( ui.value );
+			webiopi().callMacro( "MoveServo", [1, ui.value] );
+		}
+	} );
+	jQuery( '#jquery-ui-slider-value2' ) . val( jQuery( '#jquery-ui-slider2' ) . slider( 'value' ) );
+} );
+
+jQuery( function() {
+	jQuery( '#jquery-ui-slider3' ) . slider( {
+		orientation: 'vertical',
+		value: 90,
+		min: 0,
+		max: 180,
+		slide: function( event, ui ) {
+			jQuery( '#jquery-ui-slider-value3' ) . val( ui.value );
+			webiopi().callMacro( "MoveServo", [2, ui.value] );
+		}
+	} );
+	jQuery( '#jquery-ui-slider-value3' ) . val( jQuery( '#jquery-ui-slider3' ) . slider( 'value' ) );
+} );
+
+jQuery( function() {
+	jQuery( '#jquery-ui-slider4' ) . slider( {
+		orientation: 'vertical',
+		value: 90,
+		min: 0,
+		max: 180,
+		slide: function( event, ui ) {
+			jQuery( '#jquery-ui-slider-value4' ) . val( ui.value );
+			webiopi().callMacro( "MoveServo", [4, ui.value] );
+		}
+	} );
+	jQuery( '#jquery-ui-slider-value4' ) . val( jQuery( '#jquery-ui-slider4' ) . slider( 'value' ) );
+} );
+
+jQuery( function() {
+	jQuery( '#jquery-ui-slider5' ) . slider( {
+		orientation: 'vertical',
+		value: 90,
+		min: 0,
+		max: 180,
+		slide: function( event, ui ) {
+			jQuery( '#jquery-ui-slider-value5' ) . val( ui.value );
+			webiopi().callMacro( "MoveServo", [5, ui.value] );
+		}
+	} );
+	jQuery( '#jquery-ui-slider-value5' ) . val( jQuery( '#jquery-ui-slider5' ) . slider( 'value' ) );
+} );
+
+function gu() {
+	webiopi().callMacro( "Goo", [] );
+}
+
+function choki() {
+	webiopi().callMacro( "Chk", [] );
+}
+
+function pa() {
+	webiopi().callMacro( "Paa", [] );
+}
+
+function guwa() {
+	webiopi().callMacro( "Guwa", [] );
+}
+
+function popu() {
+	webiopi().callMacro( "Popu", [] );
+}
+
+function uneune() {
+	webiopi().callMacro( "Une", [] );
+}
+
+// -->
+</script>
+<style>
+<!--
+#jquery-ui-slider-wrap1 {
+	text-align: center;
+	width: 60px;
+}
+#jquery-ui-slider-wrap2 {
+	text-align: center;
+	width: 60px;
+}
+#jquery-ui-slider-wrap3 {
+	text-align: center;
+	width: 60px;
+}
+#jquery-ui-slider-wrap4 {
+	text-align: center;
+	width: 60px;
+}
+#jquery-ui-slider-wrap5 {
+	text-align: center;
+	width: 60px;
+}
+#jquery-ui-slider-value1 {
+	border: 0;
+	width: 45px;
+	text-align: center;
+}
+#jquery-ui-slider-value2 {
+	border: 0;
+	width: 45px;
+	text-align: center;
+}
+#jquery-ui-slider-value3 {
+	border: 0;
+	width: 45px;
+	text-align: center;
+}
+#jquery-ui-slider-value4 {
+	border: 0;
+	width: 45px;
+	text-align: center;
+}
+#jquery-ui-slider-value5 {
+	border: 0;
+	width: 45px;
+	text-align: center;
+}
+#jquery-ui-slider1 {
+	margin: 15px auto;
+	height: 220px;
+}
+#jquery-ui-slider2 {
+	margin: 15px auto;
+	height: 220px;
+}
+#jquery-ui-slider3 {
+	margin: 15px auto;
+	height: 220px;
+}
+#jquery-ui-slider4 {
+	margin: 15px auto;
+	height: 220px;
+}
+#jquery-ui-slider5 {
+	margin: 15px auto;
+	height: 220px;
+}
+-->
+</style>
+<form name="frm">
+<table width="300px">
+<tr>
+<td align="center">ぐー</td><td align="center">ちょき</td><td align="center">ぱー</td>
+</tr>
+<tr>
+<td align="center"><input type="radio" name="servo" onclick="gu()"></td>
+<td align="center"><input type="radio" name="servo" onclick="choki()"></td>
+<td align="center"><input type="radio" name="servo" onclick="pa()"></td>
+</tr>
+</table>
+<hr align="left" width="300px">
+<table width="300px">
+<tr>
+<td align="center">ぐわし</td><td align="center">ぽぷて</td><td align="center">うね<br>うね</td>
+</tr>
+<tr>
+<td align="center"><input type="radio" name="servo" onclick="guwa()"></td>
+<td align="center"><input type="radio" name="servo" onclick="popu()"></td>
+<td align="center"><input type="radio" name="servo" onclick="uneune()"></td>
+</tr>
+</table>
+<hr align="left" width="300px">
+<table width="300px">
+<tr>
+<td align="center">小<br>指</td>
+<td align="center">薬<br>指</td>
+<td align="center">中<br>指</td>
+<td align="center">人差<br>指</td>
+<td align="center">親<br>指</td>
+</tr>
+<tr>
+<td align="center">
+<div id="jquery-ui-slider-wrap1">
+	<input type="text" id="jquery-ui-slider-value1" />
+	<div id="jquery-ui-slider1"></div>
+</div>
+</td>
+<td align="center">
+<div id="jquery-ui-slider-wrap2">
+	<input type="text" id="jquery-ui-slider-value2" />
+	<div id="jquery-ui-slider2"></div>
+</div>
+</td>
+<td align="center">
+<div id="jquery-ui-slider-wrap3">
+	<input type="text" id="jquery-ui-slider-value3" />
+	<div id="jquery-ui-slider3"></div>
+</div>
+</td>
+<td align="center">
+<div id="jquery-ui-slider-wrap4">
+	<input type="text" id="jquery-ui-slider-value4" />
+	<div id="jquery-ui-slider4"></div>
+</div>
+</td>
+<td align="center">
+<div id="jquery-ui-slider-wrap5">
+	<input type="text" id="jquery-ui-slider-value5" />
+	<div id="jquery-ui-slider5"></div>
+</div>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>

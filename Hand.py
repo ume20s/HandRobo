@@ -1,0 +1,222 @@
+#! /usr/bin/env python
+import webiopi
+import time
+import Adafruit_PCA9685
+
+pwm = Adafruit_PCA9685.PCA9685()
+pwm.set_pwm_freq(60)
+
+def setup():
+	m_deg = int((650-150)*60/180+150)
+	pwm.set_pwm(4, 0, m_deg)
+	m_deg = int((650-150)*70/180+150)
+	pwm.set_pwm(0, 0, m_deg)
+	pwm.set_pwm(1, 0, m_deg)
+	pwm.set_pwm(2, 0, m_deg)
+	pwm.set_pwm(5, 0, m_deg)
+
+@webiopi.macro
+def MoveServo( Pos, Ang ):
+	m_deg = int((650-150)*int(Ang)/180+150)
+	pwm.set_pwm(int(Pos), 0, m_deg)
+
+@webiopi.macro
+def Goo():
+	m_deg = int((650-150)*int(100)/180+150)
+	pwm.set_pwm(5, 0, m_deg)
+	webiopi.sleep( 0.1 )
+	pwm.set_pwm(0, 0, m_deg)
+	pwm.set_pwm(1, 0, m_deg)
+	pwm.set_pwm(2, 0, m_deg)
+	pwm.set_pwm(4, 0, m_deg)
+	webiopi.sleep( 0.02 )
+	m_deg = int((650-150)*int(150)/180+150)
+	pwm.set_pwm(5, 0, m_deg)
+	webiopi.sleep( 0.1 )
+	pwm.set_pwm(0, 0, m_deg)
+	pwm.set_pwm(1, 0, m_deg)
+	pwm.set_pwm(2, 0, m_deg)
+	pwm.set_pwm(4, 0, m_deg)
+
+@webiopi.macro
+def Chk():
+	m_deg = int((650-150)*int(150)/180+150)
+	pwm.set_pwm(5, 0, m_deg)
+	webiopi.sleep( 0.1 )
+	pwm.set_pwm(0, 0, m_deg)
+	pwm.set_pwm(1, 0, m_deg)
+	m_deg = int((650-150)*int(70)/180+150)
+	pwm.set_pwm(2, 0, m_deg)
+	m_deg = int((650-150)*int(60)/180+150)
+	pwm.set_pwm(4, 0, m_deg)
+
+@webiopi.macro
+def Paa():
+	m_deg = int((650-150)*int(60)/180+150)
+	pwm.set_pwm(4, 0, m_deg)
+	m_deg = int((650-150)*int(70)/180+150)
+	pwm.set_pwm(0, 0, m_deg)
+	pwm.set_pwm(2, 0, m_deg)
+	pwm.set_pwm(1, 0, m_deg)
+	webiopi.sleep( 0.1 )
+	pwm.set_pwm(5, 0, m_deg)
+
+@webiopi.macro
+def Guwa():
+	m_deg = int((650-150)*int(150)/180+150)
+	pwm.set_pwm(0, 0, m_deg)
+	pwm.set_pwm(2, 0, m_deg)
+	m_deg = int((650-150)*int(60)/180+150)
+	pwm.set_pwm(4, 0, m_deg)
+	m_deg = int((650-150)*int(70)/180+150)
+	pwm.set_pwm(1, 0, m_deg)
+	webiopi.sleep( 0.1 )
+	pwm.set_pwm(5, 0, m_deg)
+
+@webiopi.macro
+def Popu():
+	m_deg = int((650-150)*int(150)/180+150)
+	pwm.set_pwm(5, 0, m_deg)
+	webiopi.sleep( 0.1 )
+	pwm.set_pwm(0, 0, m_deg)
+	pwm.set_pwm(1, 0, m_deg)
+	pwm.set_pwm(4, 0, m_deg)
+	m_deg = int((650-150)*int(70)/180+150)
+	pwm.set_pwm(2, 0, m_deg)
+
+@webiopi.macro
+def Une():
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int( 70+d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int( 90+d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		m_deg = int((650-150)*int( 70+d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int(110+d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		m_deg = int((650-150)*int( 90+d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		m_deg = int((650-150)*int( 70+d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int(130-d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		m_deg = int((650-150)*int(110+d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		m_deg = int((650-150)*int( 90+d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		m_deg = int((650-150)*int( 70+d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int(110-d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		m_deg = int((650-150)*int(130+d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		m_deg = int((650-150)*int(110+d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		m_deg = int((650-150)*int(100+d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int(130-d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		m_deg = int((650-150)*int(150-d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		m_deg = int((650-150)*int(130+d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		m_deg = int((650-150)*int(110+d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int(110-d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		m_deg = int((650-150)*int(130-d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		m_deg = int((650-150)*int(150-d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		m_deg = int((650-150)*int(130+d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int( 70+d)/180+150)
+		pwm.set_pwm(5, 0, m_deg)
+		m_deg = int((650-150)*int( 90-d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		m_deg = int((650-150)*int(110-d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		m_deg = int((650-150)*int(130-d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		m_deg = int((650-150)*int(150-d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int( 90+d)/180+150)
+		pwm.set_pwm(5, 0, m_deg)
+		m_deg = int((650-150)*int( 70+d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		m_deg = int((650-150)*int( 90-d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		m_deg = int((650-150)*int(110-d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		m_deg = int((650-150)*int(130-d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int(110+d)/180+150)
+		pwm.set_pwm(5, 0, m_deg)
+		m_deg = int((650-150)*int( 90+d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		m_deg = int((650-150)*int( 70+d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		m_deg = int((650-150)*int( 90-d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		m_deg = int((650-150)*int(110-d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int(130+d)/180+150)
+		pwm.set_pwm(5, 0, m_deg)
+		m_deg = int((650-150)*int(110+d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		m_deg = int((650-150)*int( 90+d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		m_deg = int((650-150)*int( 70+d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		m_deg = int((650-150)*int( 90-d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int(130+d)/180+150)
+		pwm.set_pwm(4, 0, m_deg)
+		m_deg = int((650-150)*int(110+d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		m_deg = int((650-150)*int( 90+d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		m_deg = int((650-150)*int( 70+d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int(130+d)/180+150)
+		pwm.set_pwm(2, 0, m_deg)
+		m_deg = int((650-150)*int(110+d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		m_deg = int((650-150)*int( 90+d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int(130+d)/180+150)
+		pwm.set_pwm(1, 0, m_deg)
+		m_deg = int((650-150)*int(110+d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
+	for d in range(0, 20, 1):
+		m_deg = int((650-150)*int(130+d)/180+150)
+		pwm.set_pwm(0, 0, m_deg)
+		webiopi.sleep( 0.02 )
